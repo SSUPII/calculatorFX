@@ -11,7 +11,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.interactionController">
    <top>
-      <TextField editable="false" maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
+      <TextField fx:id="outputField" editable="false" maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <font>
             <Font name="Monospaced Italic" size="28.0" />
          </font>
