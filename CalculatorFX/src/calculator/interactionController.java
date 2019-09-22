@@ -14,6 +14,6 @@ public class interactionController {
 		Button pressedButton = (Button) event.getSource();
 		String chosenNumber = pressedButton.getText();
 		System.out.println("Debug: "+chosenNumber);
-		outputField.setText(outputField.getText()+chosenNumber);
+		outputField.appendText(chosenNumber);
 	}
 }
