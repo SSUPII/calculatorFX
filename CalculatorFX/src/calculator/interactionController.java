@@ -53,28 +53,50 @@ public class interactionController {
 	
 	public void onEqualsButtonPressed() {
 		double result = 0;
-		try {
-			result = currentCalculation.compute();
-			currentCalculation = new Operation();
-			currentCalculation.setFirstNumber(Double.toString(result));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		result = calculate();
 		outputField.setText(Double.toString(result));
 	}
 	
 	private void prepareOperation(byte sign) throws InvalidNumberException {
 		if(isSecondNumber) {
-			currentCalculation.setFirstNumber(outputField.getText());
-			currentCalculation.setSign(sign);
-			onEqualsButtonPressed();
+			currentCalculation.setSecondNumber(outputField.getText());
+			calculate(sign);
 		}
 		else {
 			currentCalculation.setFirstNumber(outputField.getText());
 			currentCalculation.setSign(sign);
 			isSecondNumber = true;
 		}
+	}
+	
+	private double calculate() {
+		double result = 0;
+		try {
+			currentCalculation.setSecondNumber(outputField.getText());
+			
+			result = currentCalculation.compute();
+			currentCalculation = new Operation();
+			isSecondNumber = false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	private double calculate(byte newSign) {
+		double result = Double.parseDouble(outputField.getText());
+		try {
+			result = currentCalculation.compute();
+			currentCalculation = new Operation();
+			isSecondNumber = false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 }

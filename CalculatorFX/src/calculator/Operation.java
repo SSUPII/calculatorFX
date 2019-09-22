@@ -78,7 +78,7 @@ public class Operation {
 		for(int i = 0;number.length()>i;i++) {
 			if(number.charAt(i)=='.') {
 				try {
-					if(number.charAt(i+1) < 48 || number.charAt(i+1) > 57);
+					if(number.charAt(i+1) < 48 || number.charAt(i+1) > 57)
 						return INVALID_DECIMAL_PART;
 				}
 				catch(Exception error){
