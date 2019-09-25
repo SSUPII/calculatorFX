@@ -3,14 +3,21 @@ package calculator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class interactionController {
+	
+	private static final int MAX_LENGHT = 16;
 
 	@FXML
 	private TextField outputField;
 	
-	private Operation currentCalculation = new Operation();
+	@FXML
+	private Label errorNotifierLabel;
+	
+	private Operation currentCalculation = new Operation(interactionController.MAX_LENGHT);
 	private boolean isSecondNumber = false;
 	
 	public void onNumberPressed(ActionEvent event) {
@@ -79,7 +86,9 @@ public class interactionController {
 			isSecondNumber = false;
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			errorNotifierLabel.setText("Error - "+e.getMessage());
+			errorNotifierLabel.setTextFill(Color.web("#FF3333"));
+			
 		}
 		
 		return result;
@@ -93,7 +102,9 @@ public class interactionController {
 			isSecondNumber = false;
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			errorNotifierLabel.setText("Error - "+e.getMessage());
+			errorNotifierLabel.setTextFill(Color.web("#FF3333"));
+			
 		}
 		
 		return result;

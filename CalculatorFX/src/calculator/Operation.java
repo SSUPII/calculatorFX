@@ -37,7 +37,7 @@ public class Operation {
 		if(validationState == 1)
 			firstNumber = newNumber;
 		else
-			throw new InvalidNumberException("Number is invalid: Error "+validationState);
+			throw new InvalidNumberException("Number is invalid: Code "+validationState);
 	}
 	
 	void setSecondNumber(String newNumber) throws InvalidNumberException{
@@ -45,7 +45,7 @@ public class Operation {
 		if(validationState == 1)
 			secondNumber = newNumber;
 		else
-			throw new InvalidNumberException("Number is invalid: Error "+validationState);
+			throw new InvalidNumberException("Number is invalid: Code "+validationState);
 	}
 	
 	void setSign(byte newSign) {
@@ -74,7 +74,7 @@ public class Operation {
 		
 		if(points > 1) return MULTIPLE_POINTS;
 		
-		//check if after a point there is another point or nothing
+		//check if after a point there is nothing or a non-numerical character
 		for(int i = 0;number.length()>i;i++) {
 			if(number.charAt(i)=='.') {
 				try {
