@@ -11,7 +11,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			primaryStage.setTitle("Calculator - JavaFX");
+			primaryStage.setTitle("Calculator - JavaFX - Sergio Mari 5ITIAB");
 			primaryStage.setMinHeight(450);
 			primaryStage.setMinWidth(350);
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("calculatorLayout.fxml"));
