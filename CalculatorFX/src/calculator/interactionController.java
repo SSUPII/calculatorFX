@@ -23,7 +23,6 @@ public class interactionController {
 	public void onNumberPressed(ActionEvent event) {
 		Button pressedButton = (Button) event.getSource();
 		String chosenNumber = pressedButton.getText();
-		System.out.println("Debug: "+chosenNumber);
 		outputField.appendText(chosenNumber);
 	}
 	
