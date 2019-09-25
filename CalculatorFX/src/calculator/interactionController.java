@@ -84,6 +84,15 @@ public class interactionController {
 		}
 	}
 	
+	public void onClearButtonPressed() {
+		currentCalculation = new Operation();
+		isSecondNumber = false;
+		outputField.setText("");
+		
+		errorNotifierLabel.setText("Ready");
+		errorNotifierLabel.setTextFill(Color.web("#AAAAAA"));
+	}
+	
 	private double calculate() {
 		double result = 0;
 		try {
