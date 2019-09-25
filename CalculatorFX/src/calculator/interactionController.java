@@ -20,7 +20,8 @@ public class interactionController {
 	private Operation currentCalculation = new Operation(interactionController.MAX_LENGHT);
 	private boolean isSecondNumber = false;
 	
-	public void onNumberPressed(ActionEvent event) {
+	public void onMainButtonPressed(ActionEvent event) {
+		//called when a number or . is pressed
 		Button pressedButton = (Button) event.getSource();
 		String chosenNumber = pressedButton.getText();
 		outputField.appendText(chosenNumber);
