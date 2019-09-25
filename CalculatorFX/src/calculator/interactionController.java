@@ -98,6 +98,12 @@ public class interactionController {
 		outputField.setText("");
 	}
 	
+	public void onInvertButtonPressed() {
+		Double newNumber = Double.parseDouble(outputField.getText())*(-1);
+		
+		outputField.setText(Double.toString(newNumber));
+	}
+	
 	private double calculate() {
 		double result = 0;
 		try {
