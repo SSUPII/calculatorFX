@@ -93,6 +93,11 @@ public class interactionController {
 		errorNotifierLabel.setTextFill(Color.web("#AAAAAA"));
 	}
 	
+	public void onClearEntryButtonPressed() {
+		//CE stands for Clear Entry
+		outputField.setText("");
+	}
+	
 	private double calculate() {
 		double result = 0;
 		try {
