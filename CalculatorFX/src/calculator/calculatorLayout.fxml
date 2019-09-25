@@ -124,7 +124,7 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="&lt;x" GridPane.columnIndex="3">
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBackspaceButtonPressed" text="&lt;x" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>

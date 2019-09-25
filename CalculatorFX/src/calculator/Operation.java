@@ -53,7 +53,16 @@ public class Operation {
 	}
 	
 	private byte isValid(String number) {
-		
+		/*
+		 * Checks a string and returns one of the constants declared at the top of this class.
+		 * 
+		 * 1 - Success
+		 * -1 - String is empty
+		 * -2 - String has more characters then allowed by the maxDigits attribute
+		 * -3 - String has multiple '.' characters
+		 * -4 - String has a non-numerical character after a '.'
+		 *  	
+		 */
 		//check if empty
 		if(number.length() < 1) return EMPTY;
 		
@@ -87,7 +96,7 @@ public class Operation {
 			}
 		}
 		
-		//everything is valid
+		//if everything is valid
 		return VALID;
 			
 	}

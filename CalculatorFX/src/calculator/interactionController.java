@@ -21,10 +21,9 @@ public class interactionController {
 	private boolean isSecondNumber = false;
 	
 	public void onMainButtonPressed(ActionEvent event) {
-		//called when a number or . is pressed
 		Button pressedButton = (Button) event.getSource();
-		String chosenNumber = pressedButton.getText();
-		outputField.appendText(chosenNumber);
+		String chosenChar = pressedButton.getText();
+		outputField.appendText(chosenChar);
 	}
 	
 	public void onSignPressed(ActionEvent event) {
@@ -73,6 +72,17 @@ public class interactionController {
 			currentCalculation.setFirstNumber(outputField.getText());
 			currentCalculation.setSign(sign);
 			isSecondNumber = true;
+		}
+	}
+	
+	public void onBackspaceButtonPressed() {
+		try {
+			String newValue = outputField.getText(0,outputField.getText().length()-1);
+			outputField.setText(newValue);
+		}
+		catch (Exception e) {
+			errorNotifierLabel.setText("Error - Nothing to delete");
+			errorNotifierLabel.setTextFill(Color.web("#FF3333"));
 		}
 	}
 	
