@@ -8,8 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
 public class interactionController {
-	
-	private static final int MAX_LENGHT = 16;
 
 	@FXML
 	private TextField outputField;
@@ -17,7 +15,7 @@ public class interactionController {
 	@FXML
 	private Label errorNotifierLabel;
 	
-	private Operation currentCalculation = new Operation(interactionController.MAX_LENGHT);
+	private Operation currentCalculation = new Operation();
 	private boolean isSecondNumber = false;
 	
 	public void onMainButtonPressed(ActionEvent event) {
