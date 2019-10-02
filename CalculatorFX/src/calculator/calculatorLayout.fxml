@@ -113,12 +113,12 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBackspaceButtonPressed" text="&lt;x" GridPane.columnIndex="3">
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBackspaceButtonPressed" text="←" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </GridPane.margin>
                <font>
-                  <Font size="15.0" />
+                  <Font name="Arial" size="15.0" />
                </font></Button>
             <Button fx:id="sum" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onSignPressed" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
@@ -191,6 +191,9 @@
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
             </Label>
             <Label fx:id="operationPreview" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textAlignment="RIGHT" textFill="#a8a8a8" textOverrun="CLIP">
                <GridPane.margin>

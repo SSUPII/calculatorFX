@@ -1,4 +1,11 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#outputLabel
+{
+	-fx-border-width: 1px;
+	-fx-border-color: #999999;
+	-fx-border-radius: 5px;
+	-fx-effect: dropshadow(one-pass-box,rgba(153,153,153,255),4,0,0,0);
+}
 Button
 {
 	-fx-background-color: #EEEEEE;
