@@ -10,6 +10,9 @@ public class interactionController {
 
 	@FXML
 	private Label outputLabel;
+	
+	@FXML
+	private Label operationPreview;
 
 	@FXML
 	private Label errorNotifierLabel;
@@ -20,44 +23,56 @@ public class interactionController {
 	public void onMainButtonPressed(ActionEvent event) {
 		Button pressedButton = (Button) event.getSource();
 		String chosenChar = pressedButton.getText();
-		outputLabel.setText(outputLabel.getText()+chosenChar);
+		if(outputLabel.getText()!="Infinity")
+			outputLabel.setText(outputLabel.getText()+chosenChar);
+		else
+			outputLabel.setText(chosenChar);
 	}
 
 	public void onSignPressed(ActionEvent event) {
-		Button pressedButton = (Button) event.getSource();
-		try {
-			switch (pressedButton.getId()) {
-			case "sum":{
-				prepareOperation(Operation.SUM);
-				outputLabel.setText("");
-				break;
+		if(outputLabel.getText()!="Infinity") {
+			Button pressedButton = (Button) event.getSource();
+			try {
+				switch (pressedButton.getId()) {
+				case "sum":{
+					prepareOperation(Operation.SUM);
+					operationPreview.setText(outputLabel.getText()+" +");
+					outputLabel.setText("");
+					break;
+				}
+				case "subtraction":{
+					prepareOperation(Operation.SUB);
+					operationPreview.setText(outputLabel.getText()+" -");
+					outputLabel.setText("");
+					break;
+				}
+				case "multiplication":{
+					prepareOperation(Operation.MUL);
+					operationPreview.setText(outputLabel.getText()+" *");
+					outputLabel.setText("");
+					break;
+				}
+				case "division":{
+					prepareOperation(Operation.DIV);
+					operationPreview.setText(outputLabel.getText()+" /");
+					outputLabel.setText("");
+					break;
+				}
+				}
 			}
-			case "subtraction":{
-				prepareOperation(Operation.SUB);
-				outputLabel.setText("");
-				break;
+			catch (InvalidNumberException error) {
+	
 			}
-			case "multiplication":{
-				prepareOperation(Operation.MUL);
-				outputLabel.setText("");
-				break;
-			}
-			case "division":{
-				prepareOperation(Operation.DIV);
-				outputLabel.setText("");
-				break;
-			}
-			}
-		}
-		catch (InvalidNumberException error) {
-
 		}
 	}
 
 	public void onEqualsButtonPressed() {
-		double result = 0;
-		result = calculate();
-		outputLabel.setText(Double.toString(result));
+		if(outputLabel.getText()!="Infinity") {
+			double result = 0;
+			result = calculate();
+			outputLabel.setText(Double.toString(result));
+			operationPreview.setText("");
+		}
 	}
 
 	private void prepareOperation(byte sign) throws InvalidNumberException {
@@ -73,16 +88,20 @@ public class interactionController {
 	}
 
 	public void onBackspaceButtonPressed() {
-		try {
-			String newValue = "";
-			for(int n = 0;outputLabel.getText().length()-1>n;n++)
-				newValue += outputLabel.getText().charAt(n);
-			outputLabel.setText(newValue);
+		if(outputLabel.getText()!="Infinity") {
+			try {
+				String newValue = "";
+				for(int n = 0;outputLabel.getText().length()-1>n;n++)
+					newValue += outputLabel.getText().charAt(n);
+				outputLabel.setText(newValue);
+			}
+			catch (Exception e) {
+				errorNotifierLabel.setText("Error - Nothing to delete");
+				errorNotifierLabel.setTextFill(Color.web("#FF3333"));
+			}
 		}
-		catch (Exception e) {
-			errorNotifierLabel.setText("Error - Nothing to delete");
-			errorNotifierLabel.setTextFill(Color.web("#FF3333"));
-		}
+		else
+			onClearButtonPressed();
 	}
 
 	public void onClearButtonPressed() {
@@ -90,6 +109,8 @@ public class interactionController {
 		isSecondNumber = false;
 		outputLabel.setText("");
 
+		operationPreview.setText("");
+		
 		errorNotifierLabel.setText("Ready");
 		errorNotifierLabel.setTextFill(Color.web("#AAAAAA"));
 	}
